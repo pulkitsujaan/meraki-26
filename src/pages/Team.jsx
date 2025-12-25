@@ -159,7 +159,7 @@ const Team = () => {
               className="grid grid-cols-3 gap-8 md:gap-12 items-start"
               variants={containerVariants}
             >
-              {/* Left: Non-director coordinators (excluding director) */}
+              {/* Left: First non-director coordinator */}
               <div className="col-span-1">
                 {coordinators
                   .filter(coord => !coord.isDirector)
