@@ -146,7 +146,6 @@ const PosterFrame = ({ partner, index }) => {
 
       {/* Partner Details Plaque */}
       <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 text-center w-48 z-20">
-
         <p className="font-terminal text-xs sm:text-sm text-gray-300 mt-1">
           {partner.firm}
         </p>
