@@ -12,7 +12,7 @@ import { workshopDetailsData, workshops } from "../constants";
 
 /**
  * Workshop details page component.
- * @params workshopSlug - URL parameter matching workshop slug
+ * @param workshopSlug - URL parameter matching workshop slug
  * @state showMore - Toggles between short and full description
  */
 const WorkshopDetails = () => {
