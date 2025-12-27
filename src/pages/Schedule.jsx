@@ -138,7 +138,6 @@ const Schedule = () => {
          */}
         {!showSchedule ? (
           /* Coming Soon Skeleton UI */
-          /* Coming Soon Skeleton UI */
           <div className="relative min-h-[50vh]">
             {/* Floating "Coming Soon" Badge */}
             <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none select-none">
