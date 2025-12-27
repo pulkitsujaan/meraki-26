@@ -232,7 +232,6 @@ function FlagshipEvent() {
                       {activeEvent.description}
                     </p>
 
-
                   </div>
                 </div>
               </div>
