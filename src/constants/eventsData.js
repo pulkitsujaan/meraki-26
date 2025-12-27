@@ -13,6 +13,8 @@ import skyCircuitImg from "../assets/skycircuit.png";
 import roboDriveImg from "../assets/itsRoboDrive.png";
 import hackTheThroneImg from "../assets/hack_the_throne.png";
 import arenaXImg from "../assets/Esports.jpeg";
+import cairLogo from "../assets/sponsors/iitlogo.png";
+import aerostarLogo from "../assets/sponsors/aerostar.png";
 
 /**
  * Elite events array for homepage tabs.
@@ -111,7 +113,11 @@ export const eventDetailsData = {
         venue: 'Open Ground, IIIT Una',
         contact: 'meraki@iiitu.ac.in | +91 7017488532',
         registerLink: '#',
-        buttonText: 'JOIN US'
+        buttonText: 'JOIN US',
+        sponsors: [
+            { name: "CAIR, IIT Mandi", logo: cairLogo, type: "Title Sponsor" },
+            { name: "AEROSTAR", logo: aerostarLogo, type: "Co-Sponsor" }
+        ]
     },
     'hack-the-throne': {
         title: 'HACK-THE-THRONE',

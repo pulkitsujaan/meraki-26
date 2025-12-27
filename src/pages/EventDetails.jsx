@@ -181,6 +181,64 @@ const EventDetails = () => {
                 <div className="border-l-3 sm:border-l-4 border-cyan-400 pl-3 sm:pl-4 py-1"><h4 className="font-pixel text-sm sm:text-base text-white mb-1 sm:mb-2">CONTACT</h4><p className="font-terminal text-sm sm:text-base text-gray-400 break-all">{eventData.contact}</p></div>
               </div>
             </motion.div>
+
+            {/* Sponsors Section */}
+            {eventData.sponsors && (
+              <motion.div
+                className="mt-12 sm:mt-16"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.0, delay: 0.6 }}
+              >
+                <div className="flex items-center justify-center gap-4 mb-8 sm:mb-12">
+                  <div className="h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent flex-1 opacity-30"></div>
+                  <div className="relative">
+
+                    <h2 className="relative font-minecraft text-xl sm:text-2xl md:text-3xl text-yellow-400 text-center tracking-widest drop-shadow-[0_2px_0_rgba(0,0,0,1)]">
+                      EVENT PATRONS
+                    </h2>
+                  </div>
+                  <div className="h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent flex-1 opacity-30"></div>
+                </div>
+
+                <div className="flex flex-wrap justify-center gap-8 sm:gap-16 pb-8">
+                  {eventData.sponsors.map((sponsor, index) => (
+                    <div key={index} className="group relative">
+                      {/* Item Frame Background */}
+                      <div className="absolute -inset-3 bg-[#5c3a21] rounded-sm transform rotate-3 transition-transform duration-300 group-hover:rotate-6"></div>
+                      <div className="absolute -inset-3 bg-[#8b5e34] border-t-4 border-l-4 border-[#a67c52] border-b-4 border-r-4 border-[#3d2616] shadow-xl"></div>
+
+                      {/* Inner Content Area */}
+                      <div className="relative bg-[#201c1c] p-6 min-w-[240px] sm:min-w-[280px] flex flex-col items-center gap-4 border-4 border-[#1a1616] shadow-[inset_0_0_30px_rgba(0,0,0,0.8)]">
+                        {/* Leather Background Texture Overlay */}
+                        <div className="absolute inset-0 bg-[#3d2616] opacity-10 pointer-events-none"></div>
+
+                        {/* Logo Box */}
+                        <div className="relative w-full h-32 sm:h-40 bg-white border-2 border-[#3d2616] flex items-center justify-center p-4 rounded-sm overflow-hidden group-hover:border-[#a67c52] transition-colors">
+                          <img
+                            src={sponsor.logo}
+                            alt={sponsor.name}
+                            className="max-w-full max-h-full object-contain filter drop-shadow-md transition-all duration-500 group-hover:scale-110"
+                          />
+                        </div>
+
+                        {/* Text Info */}
+                        <div className="text-center relative z-10">
+                          <p className="font-pixel text-yellow-400 text-lg sm:text-xl md:text-2xl mb-2 drop-shadow-md">{sponsor.name}</p>
+
+                        </div>
+                      </div>
+
+                      {/* Item Frame Corners (Nails) */}
+                      <div className="absolute -top-1 -left-1 w-2 h-2 bg-[#2a1d15] shadow-sm z-20"></div>
+                      <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#2a1d15] shadow-sm z-20"></div>
+                      <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-[#2a1d15] shadow-sm z-20"></div>
+                      <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-[#2a1d15] shadow-sm z-20"></div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
           </>
         )}
       </motion.div>
