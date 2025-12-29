@@ -8,11 +8,10 @@
  * @module constants/eventsData
  */
 
-import minecraftimg from "../assets/minecraft_dungeons_placeholder.webp";
-import skyCircuitImg from "../assets/skycircuit.webp";
-import roboDriveImg from "../assets/itsRoboDrive.webp";
-import hackTheThroneImg from "../assets/hack_the_throne.webp";
-import arenaXImg from "../assets/Esports.webp";
+import skyCircuitImg from "../assets/sky_circuit.png";
+import roboDriveImg from "../assets/robo_drive.png";
+import hackTheThroneImg from "../assets/hack_the_throne.png";
+import arenaXImg from "../assets/arena_x.png";
 import cairLogo from "../assets/sponsors/iitlogo.webp";
 import aerostarLogo from "../assets/sponsors/aerostar.webp";
 
