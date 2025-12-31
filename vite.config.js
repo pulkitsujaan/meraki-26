@@ -8,43 +8,56 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          // Vendor chunks - separate heavy dependencies
-          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-animation': ['framer-motion', 'lenis'],
-          // Three.js is very large, separate it
-          'vendor-three': ['three', '@react-three/fiber', '@react-three/drei'],
+        manualChunks(id) {
+          // Vendor chunks - separate heavy dependencies (npm packages)
+          if (id.includes('node_modules')) {
+            if (id.includes('react-dom') || id.includes('react-router-dom')) {
+              return 'vendor-react';
+            }
+            if (id.includes('framer-motion') || id.includes('lenis')) {
+              return 'vendor-animation';
+            }
+            if (id.includes('three') || id.includes('@react-three')) {
+              return 'vendor-three';
+            }
+          }
+          
           // Homepage sections (below-the-fold lazy-loaded)
-          'home-sections': [
-            './src/components/About.jsx',
-            './src/components/Faq.jsx',
-            './src/components/FlagshipEvent.jsx',
-            './src/components/ExpertTalk.jsx',
-            './src/components/Sponsors.jsx',
-          ],
+          if (id.includes('/components/About.jsx') ||
+              id.includes('/components/Faq.jsx') ||
+              id.includes('/components/FlagshipEvent.jsx') ||
+              id.includes('/components/ExpertTalk.jsx') ||
+              id.includes('/components/Sponsors.jsx')) {
+            return 'home-sections';
+          }
+          
           // 3D model component separate (uses Three.js)
-          'home-3d': [
-            './src/components/ScrollModel.jsx',
-          ],
+          if (id.includes('/components/ScrollModel.jsx')) {
+            return 'home-3d';
+          }
+          
+          // Contact page
+          if (id.includes('/components/Contact.jsx')) {
+            return 'pages-contact';
+          }
+          
           // Group page components by feature
-          'pages-main': [
-            './src/pages/Gallery.jsx',
-            './src/pages/Schedule.jsx',
-            './src/pages/Team.jsx',
-            './src/pages/DevTeam.jsx',
-          ],
-          'pages-details': [
-            './src/pages/EventDetails.jsx',
-            './src/pages/WorkshopDetails.jsx',
-          ],
+          if (id.includes('/pages/Gallery.jsx') ||
+              id.includes('/pages/Schedule.jsx') ||
+              id.includes('/pages/Team.jsx') ||
+              id.includes('/pages/DevTeam.jsx')) {
+            return 'pages-main';
+          }
+          
+          if (id.includes('/pages/EventDetails.jsx') ||
+              id.includes('/pages/WorkshopDetails.jsx')) {
+            return 'pages-details';
+          }
+          
           // Constants/data chunks
-          'data': [
-            './src/constants/index.js',
-            './src/constants/eventsData.js',
-            './src/constants/galleryData.js',
-            './src/constants/teamData.js',
-            './src/constants/workshopsData.js',
-          ],
+          if (id.includes('/constants/')) {
+            return 'data';
+          }
         },
       },
     },
